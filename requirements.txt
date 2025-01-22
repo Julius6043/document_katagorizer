@@ -1,0 +1,6 @@
+PyPDF2
+langchain_google_genai
+langchain
+langchain_community
+langchain_openai
+biopython
