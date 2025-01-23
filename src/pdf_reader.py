@@ -24,7 +24,7 @@ def load_pdf(file_name, chunk_size=1000, chunk_overlap=200):
     loader = PyMuPDFLoader(path)
     docs = loader.load()
     content = docs
-    # Initialisiere den Text-Splitter
+    """# Initialisiere den Text-Splitter
     text_splitter = RecursiveCharacterTextSplitter(
         separators=["\n"],
         chunk_size=chunk_size,
@@ -33,7 +33,8 @@ def load_pdf(file_name, chunk_size=1000, chunk_overlap=200):
     )
 
     # Splitte die Dokumente in Chunks
-    split_chunks = text_splitter.split_documents(docs)
+    split_chunks = text_splitter.split_documents(docs)"""
+    split_chunks = []
     return split_chunks, content
 
 
@@ -51,7 +52,7 @@ def parse_pubmed_nbib(nbib_file):
             abstract = record.get("AB", "")
             authors = record.get("AU", [])
 
-            record_string = f"PMID: {pmid}\nTitle: {title}\nAbstract: {abstract}\nAuthors: {', '.join(authors)}\n"
+            record_string = f"PMID: {pmid}\nTitle: {title}\nAbstract: {abstract}\nAuthors: {'; '.join(authors)}\n"
             records_data.append(record_string)
     return records_data
 
